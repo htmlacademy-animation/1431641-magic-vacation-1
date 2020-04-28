@@ -241,6 +241,7 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color 300ms ease-out;
 
     &::after {
       content: "";
@@ -249,8 +250,11 @@
       width: 100%;
       height: 2px;
       background-color: $c-light;
-      display: none;
+      display: block;
       left: 0;
+      transition: transform 300ms ease-out;
+      transform: scaleX(0);
+      transform-origin: right;
 
       @media (min-width: $stop-scaling) {
         left: -5px;
@@ -272,18 +276,20 @@
 
     &.active {
       &::after {
-        display: block;
+        transform: scaleX(1);
       }
     }
 
-    &:hover,
-    &:focus {
+    &:hover:not(.active),
+    &:focus:not(.active) {
       color: $c-purple;
       outline: none;
 
       &::after {
         opacity: 1;
         background-color: $c-purple;
+        transform: scaleX(1);
+        transform-origin: left;
       }
     }
   }
