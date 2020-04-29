@@ -46,6 +46,7 @@
   color: $c-dark;
   border: 0;
   border-radius: 3rem;
+  outline: none;
   animation-name: widthToLeft;
   animation-duration: 600ms;
   animation-timing-function: ease-in-out;
@@ -53,6 +54,10 @@
   top: 0;
   left: 0;
   right: 100%;
+
+  &:focus {
+    border: 1px solid $c-purple;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-right: 30px;
