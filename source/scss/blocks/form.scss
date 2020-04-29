@@ -2,6 +2,10 @@
   position: relative;
   display: flex;
   align-items: center;
+
+  &--align-end {
+    justify-content: flex-end;
+  }
 }
 
 .form__label {
@@ -42,6 +46,13 @@
   color: $c-dark;
   border: 0;
   border-radius: 3rem;
+  animation-name: widthToLeft;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in-out;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 100%;
 
   @media (min-width: $stop-scaling) {
     margin-right: 30px;
@@ -71,10 +82,22 @@
     height: 4rem;
     font-size: 1.6rem;
   }
+
+  @keyframes widthToLeft {
+    from {
+      width: 0;
+    }
+  }
 }
 
 .form__button {
   flex-grow: 1;
+
+  .form--align-end & {
+    & {
+      flex-grow: 0;
+    }
+  }
 
   @media (orientation: portrait) {
     position: relative;
