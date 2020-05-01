@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    lint:
+      run: npm run test
+pre-push:
+  commands:
+    build:
+      run: npm run build -- --mode=production

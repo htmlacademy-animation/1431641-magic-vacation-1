@@ -25,11 +25,11 @@ export default () => {
     });
   }
 
-  window.addEventListener("load", () => {
-    socialBlockToggler.classList.add("start-animated");
+  window.addEventListener(`load`, () => {
+    socialBlockToggler.classList.add(`start-animated`);
     setTimeout(() => {
-      socialBlockToggler.classList.remove("start-animated");
-      socialBlockToggler.classList.add("end-animated");
+      socialBlockToggler.classList.remove(`start-animated`);
+      socialBlockToggler.classList.add(`end-animated`);
     }, 300);
   });
 };
