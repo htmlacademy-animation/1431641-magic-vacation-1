@@ -46,6 +46,12 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transition: transform 300ms cubic-bezier(0, 0, 0.13, 0.61);
+  transform: translateY(100%);
+
+  body.loaded & {
+    transform: translateY(0);
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -290,7 +296,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
+    url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
