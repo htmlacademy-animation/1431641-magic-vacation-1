@@ -94,11 +94,14 @@
   font-size: 2.4rem;
   line-height: 1.27;
   opacity: 0;
-  animation-name: fadeIn;
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
-  animation-delay: 300ms;
-  animation-fill-mode: forwards;
+
+  body.loaded & {
+    animation-name: fadeIn;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 509px;
