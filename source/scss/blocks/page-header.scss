@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   padding: 2.7rem 0;
-  z-index: 10;
+  z-index: 100;
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -101,7 +101,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     right: 0.8rem;
     height: 1px;
@@ -140,7 +140,7 @@
   display: flex;
   align-items: center;
   opacity: 0;
-  transition: opacity 300ms cubic-bezier(0, 0, 0.13, 0.61);
+  transition: opacity 500ms cubic-bezier(0, 0, 0.13, 0.61) 150ms;
 
   body.loaded & {
     opacity: 1;
@@ -259,7 +259,7 @@
     transition: color 300ms ease-out;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -293,6 +293,7 @@
       &::after {
         transform: scaleX(1);
         transform-origin: left;
+        transition-delay: 200ms;
       }
     }
 

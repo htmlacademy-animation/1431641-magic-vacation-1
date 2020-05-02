@@ -49,8 +49,15 @@
   transition: transform 300ms cubic-bezier(0, 0, 0.13, 0.61);
   transform: translateY(100%);
 
-  body.loaded & {
+  body.loaded &,
+  .screen--intro:not(.animated),
+  .screen--prizes:not(.animated) {
     transform: translateY(0);
+  }
+
+  .screen--intro.animated &,
+  .screen--prizes.animated & {
+    transform: translateY(100%);
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -296,8 +303,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
-    url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url('../img/slide1.jpg'), url('../img/slide2.jpg'),
+    url('../img/slide3.jpg'), url('../img/slide4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -309,7 +316,8 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  background-color: transparent;
+  z-index: 20;
 }
 
 .screen--game {
@@ -317,18 +325,18 @@
   background-color: $c-dark;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     right: -8.5rem;
     bottom: 0;
     width: 32.7rem;
     height: 36.9rem;
-    background-image: url("../img/sonya.png");
+    background-image: url('../img/sonya.png');
     background-repeat: no-repeat;
     background-size: contain;
 
     @include retina {
-      background-image: url("../img/sonya@2x.png");
+      background-image: url('../img/sonya@2x.png');
     }
 
     @media (min-width: $stop-scaling) {
@@ -360,4 +368,15 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+.screen-fill {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  background-color: $c-dark;
+  opacity: 0;
+  transition: height 200ms ease-out, opacity 200ms ease-out;
 }
