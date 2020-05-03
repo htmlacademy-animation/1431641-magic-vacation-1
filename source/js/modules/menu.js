@@ -3,6 +3,7 @@ export default () => {
   let menuToggler = document.querySelector(`.js-menu-toggler`);
   let menuLinks = document.querySelectorAll(`.js-menu-link`);
   let historyLinkIndex;
+  const rulesLink = document.querySelector(`.rules__link`);
   const screenIntro = document.querySelector(`.screen--intro`);
   const screenPrizes = document.querySelector(`.screen--prizes`);
   const socialBlockToggler = document.querySelector(`.social-block__toggler`);
@@ -48,11 +49,11 @@ export default () => {
         document.body.classList.remove(`menu-opened`);
       }
 
-      if (
-        event &&
-        event.target.dataset.href === `prizes` &&
-        isHistoryActive()
-      ) {
+      if (!event) {
+        return;
+      }
+
+      if (event.target.dataset.href === `prizes` && isHistoryActive()) {
         event.preventDefault();
 
         screenPrizes.classList.add(`animated`);
@@ -64,10 +65,12 @@ export default () => {
           menuLinks[historyLinkIndex + 1].click();
           screenPrizes.classList.remove(`animated`);
         }, 200);
-      } else if (event && event.target.dataset.href === `prizes`) {
+      } else if (event.target.dataset.href === `prizes`) {
         setSectionAnimate(screenPrizes);
-      } else if (event && event.target.dataset.href === `top`) {
+      } else if (event.target.dataset.href === `top`) {
         setSectionAnimate(screenIntro);
+      } else if (event.target.dataset.href === `rules`) {
+        rulesLink.classList.add(`btn--transparent`);
       }
     });
   }
