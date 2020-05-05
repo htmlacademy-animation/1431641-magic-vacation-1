@@ -24,8 +24,10 @@
 }
 
 .intro__title {
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  max-width: 99rem;
+  max-width: 110rem;
   text-transform: uppercase;
   font-family: $font-alt;
   font-weight: 400;
@@ -94,13 +96,13 @@
   font-size: 2.4rem;
   line-height: 1.27;
   opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transition-delay: 1.1s;
 
   body.loaded & {
-    animation-name: fadeIn;
-    animation-duration: 300ms;
-    animation-timing-function: ease-in-out;
-    animation-delay: 300ms;
-    animation-fill-mode: forwards;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (min-width: $stop-scaling) {
@@ -142,17 +144,6 @@
       height: 1.1rem;
     }
   }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 }
 
 .intro__label {
@@ -161,6 +152,12 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out 1.6s;
+
+  body.loaded & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 16px;
@@ -181,4 +178,21 @@
     margin: 0 0 0 -5px;
     font-size: 48px;
   }
+}
+
+.text__word {
+  display: inline-block;
+  padding: 0 5px;
+  overflow: hidden;
+}
+
+.text__word > span {
+  transform: translate3d(0, 100%, 0);
+  display: inline-block;
+  padding-top: 2rem;
+}
+
+.intro__title.active .text__word > span,
+.intro__date.active .text__word > span {
+  transform: translate3d(0, 0, 0);
 }

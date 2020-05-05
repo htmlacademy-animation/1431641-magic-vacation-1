@@ -3,6 +3,7 @@ import chat from './modules/chat.js';
 import footer from './modules/footer.js';
 import form from './modules/form.js';
 import FullPageScroll from './modules/full-page-scroll';
+import intro from './modules/intro.js';
 import menu from './modules/menu.js';
 import mobileHeight from './modules/mobile-height-adjust.js';
 import result from './modules/result.js';
@@ -20,6 +21,7 @@ result();
 form();
 social();
 rules();
+intro();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
