@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Личный проект «Таинственный отпуск» от HTML Academy",
   "devDependencies": {
-    "@arkweid/lefthook": "^0.7.1",
     "@htmlacademy/editorconfig-cli": "1.x",
     "concurrently": "5.1.0",
     "copy-webpack-plugin": "5.1.1",
@@ -60,6 +59,7 @@
     "node": "8.15"
   },
   "dependencies": {
+    "normalize.css": "8.0.1",
     "swiper": "5.3.8",
     "three": "0.115.0"
   }

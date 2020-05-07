@@ -127,7 +127,7 @@
   @media (min-width: $stop-scaling) {
     margin: 0 0 62px;
     padding-top: 6px;
-    padding-left: 65px;
+    min-height: 5rem;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -145,23 +145,20 @@
   }
 
   &::before {
-    content: '';
+    content: counter(li);
+    counter-increment: li;
     position: absolute;
-    top: 0.4rem;
+    top: 0;
     left: 0;
     width: 4.5rem;
     height: 4.5rem;
+    font-family: $font-alt;
+    font-weight: 400;
+    font-size: 2.4rem;
     background-color: $c-purple;
     border-radius: 50%;
-    opacity: 0;
-    z-index: 1;
-
-    .screen--rules.active & {
-      animation-name: heartbeat;
-      animation-duration: 500ms;
-      animation-timing-function: ease-in-out;
-      animation-fill-mode: forwards;
-    }
+    line-height: 5rem;
+    text-align: center;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -178,105 +175,13 @@
       line-height: 3rem;
       font-size: 1.4rem;
     }
-
-    @keyframes heartbeat {
-      0% {
-        transform: scale(0, 0);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.2, 1.2);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1, 1);
-      }
-    }
-  }
-
-  @for $i from 1 through 4 {
-    &:nth-child(#{$i})::before {
-      @if $i == 1 {
-        animation-delay: 0ms;
-      } @else {
-        animation-delay: (150ms * $i);
-      }
-    }
-  }
-
-  &-counter::before {
-    content: counter(li);
-    counter-increment: li;
-    width: 4.5rem;
-    height: 4.5rem;
-    position: absolute;
-    top: 0.4rem;
-    left: 0;
-    font-family: $font-alt;
-    font-weight: 400;
-    font-size: 2.4rem;
-    line-height: 5rem;
-    text-align: center;
-    opacity: 0;
-    z-index: 2;
-
-    .screen--rules.active & {
-      animation-name: fadeIn;
-      animation-duration: 500ms;
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  }
-
-  @for $i from 1 through 4 {
-    &:nth-child(#{$i}) & {
-      &-counter::before {
-        animation-delay: (200ms * $i);
-      }
-    }
   }
 
   p {
     margin: 0;
-    opacity: 0;
-
-    .screen--rules.active & {
-      animation-name: fadeInRight;
-      animation-duration: 500ms;
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;
-    }
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-  }
-
-  @for $i from 1 through 4 {
-    &:nth-child(#{$i}) {
-      p {
-        animation-delay: (250ms * $i);
-      }
     }
   }
 }
