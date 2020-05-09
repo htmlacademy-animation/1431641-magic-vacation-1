@@ -85,7 +85,7 @@ class AccentTypographyBuild {
         const up = wordOrderNumber === 0 ? 1 : 2;
         const timeOffset = this._randomInteger(100 * up, 250 * up);
 
-        span.style.transition = `${this._property} ${this._timer}ms ease ${timeOffset}ms`;
+        span.style.transition = `${this._property} ${this._timer}ms cubic-bezier(0.16, 1, 0.3, 1) ${timeOffset}ms`;
       });
     }
   }
